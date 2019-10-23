@@ -28,7 +28,7 @@ def fortifyScan() {
 }
 
 def translateResults() {
-  docker.image('fortify-to-sonarqube:1.0').inside() {
+  docker.image('coveros/fortify-to-sonarqube').inside() {
     sh 'transform --input target/fortify/fprcsv.csv --output target/fortify/fprresults.json'
   }
 }
